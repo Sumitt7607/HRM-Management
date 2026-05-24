@@ -28,8 +28,8 @@ This is the Express.js backend for the HR Cloud application. It handles authenti
    node seed.js
    \`\`\`
    This will create:
-   - Admin: \`admin@demo.com\` / \`adminpassword\`
-   - Employee: \`sarah@demo.com\` / \`password123\`
+   - Admin: `admin@gmail.com` / `password`
+   - Employee: `test@gmail.com` / `123`
 
 4. **Start the Server**
    For development (auto-restarts on changes):

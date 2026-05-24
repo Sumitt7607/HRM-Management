@@ -10,8 +10,8 @@ async function testAttendance() {
     try {
         console.log('Logging in as employee...');
         const loginRes = await axios.post(`${API_URL}/auth/login`, {
-            email: 'sarah@demo.com',
-            password: 'password123'
+            email: 'test@gmail.com',
+            password: '123'
         });
         token = loginRes.data.token;
         console.log('Login successful.');

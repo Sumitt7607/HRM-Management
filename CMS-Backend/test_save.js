@@ -12,8 +12,8 @@ async function run() {
 
         const userData = {
             name: 'Sarah Test',
-            email: 'sarah@demo.com',
-            password: 'password123',
+            email: 'test@gmail.com',
+            password: '123',
             role: 'employee'
         };
 

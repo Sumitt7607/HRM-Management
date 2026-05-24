@@ -11,8 +11,8 @@ dotenv.config();
 const users = [
     {
         name: 'Sarah Johnson',
-        email: 'sarah@demo.com',
-        password: 'password123',
+        email: 'test@gmail.com',
+        password: '123',
         role: 'employee',
         department: 'Engineering',
         position: 'Software Engineer',
