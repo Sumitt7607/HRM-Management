@@ -1,5 +1,4 @@
 import API_URL from '../utils/api';
-import hrmLogo from '../assets/hrm_logo.png';
 import { useState, useEffect } from 'react';
 import html2pdf from 'html2pdf.js';
 import axios from 'axios';
@@ -88,7 +87,15 @@ const PaySlipModal = ({ payroll, user: employee, dynamicEmployeeId, onClose }) =
                 <div id="printable-payslip" style={{ padding: '16px 24px' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px', paddingBottom: '12px', borderBottom: '1px solid #f1f5f9' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                            <img src={hrmLogo} alt="Logo" style={{ height: '36px', width: 'auto' }} />
+                            <div style={{
+                                background: '#f8fafc',
+                                padding: '4px 10px',
+                                borderRadius: '8px',
+                                border: '1px solid #e2e8f0',
+                                display: 'inline-block'
+                            }}>
+                                <span style={{ fontSize: '16px', fontWeight: '900', color: '#3b82f6', letterSpacing: '0.05em' }}>HRM</span>
+                            </div>
                             <div>
                                 <h1 style={{ margin: 0, fontSize: '20px', fontWeight: '800', color: '#0f172a' }}>HRM Learning</h1>
                                 <p style={{ margin: '2px 0 0 0', fontSize: '11px', color: '#64748b' }}>{address}</p>

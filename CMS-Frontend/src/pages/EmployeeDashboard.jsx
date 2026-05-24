@@ -1,5 +1,4 @@
 import API_URL from '../utils/api';
-import hrmLogo from '../assets/hrm_logo.png';
 import { useState, useEffect, useCallback } from 'react';
 import html2pdf from 'html2pdf.js';
 import axios from 'axios';
@@ -1364,7 +1363,7 @@ const EmployeeDashboard = () => {
                     zIndex: 900
                 }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                        <img src={hrmLogo} alt="Logo" style={{ height: '32px', width: 'auto' }} />
+                        <span style={{ fontSize: '18px', fontWeight: '900', color: 'var(--primary)', letterSpacing: '0.05em' }}>HRM</span>
                     </div>
                     <button 
                         onClick={() => setIsSidebarOpen(true)}

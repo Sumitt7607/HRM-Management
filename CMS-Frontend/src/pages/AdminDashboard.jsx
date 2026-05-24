@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Menu } from 'lucide-react';
-import hrmLogo from '../assets/hrm_logo.png';
 import Sidebar from '../components/Sidebar';
 import AdminOverview from './AdminOverview';
 import EmployeeList from './EmployeeList';
@@ -85,7 +84,7 @@ const AdminDashboard = () => {
                     zIndex: 900
                 }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <img src={hrmLogo} alt="Logo" style={{ height: '28px', width: 'auto' }} />
+                        <span style={{ fontSize: '18px', fontWeight: '900', color: 'var(--primary)', letterSpacing: '0.05em' }}>HRM</span>
                     </div>
                     <button 
                         onClick={() => setIsSidebarOpen(true)}

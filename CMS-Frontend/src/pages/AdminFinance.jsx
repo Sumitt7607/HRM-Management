@@ -10,7 +10,6 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 import { jsPDF } from 'jspdf';
 import autoTable from 'jspdf-autotable';
-import hrmLogo from '../assets/hrm_logo.png';
 import {
     BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
     LineChart, Line, PieChart as RePieChart, Pie, Cell, AreaChart, Area
@@ -115,8 +114,8 @@ const FinanceDashboard = ({ stats }) => {
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                    <div style={{ background: 'white', padding: '8px', borderRadius: '12px', border: '1px solid var(--border)', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)' }}>
-                        <img src={hrmLogo} alt="HRM Logo" style={{ height: '48px', objectFit: 'contain' }} />
+                    <div style={{ background: 'var(--primary-soft)', padding: '12px 18px', borderRadius: '12px', border: '1px solid var(--border)', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <span style={{ fontSize: '24px', fontWeight: '900', color: 'var(--primary)', letterSpacing: '0.05em' }}>HRM</span>
                     </div>
                     <div>
                         <h2 style={{ fontSize: '28px', fontWeight: '800', color: 'var(--text-main)', margin: '0 0 4px 0', letterSpacing: '-0.5px' }}>Finance Overview</h2>
@@ -430,25 +429,17 @@ const FinanceInvoices = ({ token, onEdit, onPreview, companyInfo }) => {
         doc.setFillColor(primaryColor[0], primaryColor[1], primaryColor[2]);
         doc.rect(0, 0, 210, 45, 'F');
         
-        // Company Name / Logo Area
-        const logoBase64 = await getBase64ImageFromUrl(hrmLogo);
-        if (logoBase64) {
-            // Adjust the width/height based on your logo's aspect ratio. Usually 40x12 or similar.
-            // Putting a white background rectangle if the logo needs it, or just raw image if it's transparent PNG and looks good on blue
-            // Let's draw it at x=14, y=10, width=45, height=25
-            // But PNGs with transparency sometimes look bad directly, we'll draw a white rounded rect behind it just in case
-            doc.setFillColor(255, 255, 255);
-            doc.roundedRect(12, 10, 50, 25, 2, 2, 'F');
-            doc.addImage(logoBase64, 'PNG', 14, 12, 46, 21);
-        } else {
-            doc.setTextColor(255, 255, 255);
-            doc.setFont("helvetica", "bold");
-            doc.setFontSize(26);
-            doc.text("HRM LEARNING", 14, 25);
-            doc.setFontSize(10);
-            doc.setFont("helvetica", "normal");
-            doc.text("Professional EdTech Solutions", 14, 32);
-        }
+        // Company Name / Logo Area (Text-based HRM logo)
+        doc.setFillColor(255, 255, 255);
+        doc.roundedRect(12, 10, 30, 25, 4, 4, 'F');
+        doc.setTextColor(primaryColor[0], primaryColor[1], primaryColor[2]);
+        doc.setFont("helvetica", "bold");
+        doc.setFontSize(18);
+        doc.text("HRM", 18, 26);
+        
+        doc.setTextColor(255, 255, 255);
+        doc.setFontSize(12);
+        doc.text("HRM Learning", 48, 25);
 
         // Invoice Meta Info (Top Right)
         doc.setFontSize(20);
@@ -688,8 +679,8 @@ const InvoicePreviewModal = ({ invoice, onClose, companyInfo }) => {
                         
                         {/* Header Banner inside Paper */}
                         <div style={{ background: BRAND_COLOR, margin: '-40px -40px 40px -40px', padding: '40px', color: 'white', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                            <div style={{ background: 'white', padding: '8px', borderRadius: '8px', display: 'inline-block' }}>
-                                <img src={hrmLogo} alt="HRM Learning" style={{ height: '40px', objectFit: 'contain' }} />
+                            <div style={{ background: 'white', padding: '8px 16px', borderRadius: '8px', display: 'inline-block' }}>
+                                <span style={{ fontSize: '20px', fontWeight: '900', color: BRAND_COLOR, letterSpacing: '0.05em' }}>HRM</span>
                             </div>
                             <div style={{ textAlign: 'right' }}>
                                 <h2 style={{ margin: 0, fontSize: '36px', fontWeight: '900', letterSpacing: '2px' }}>INVOICE</h2>
@@ -1262,7 +1253,7 @@ const FinanceSettings = ({ companyInfo, setCompanyInfo }) => {
                 <div style={{ display: 'flex', alignItems: 'center', gap: '24px', marginBottom: '40px', paddingBottom: '32px', borderBottom: '1px solid #f1f5f9' }}>
                     <div style={{ position: 'relative' }}>
                         <div style={{ width: '120px', height: '120px', borderRadius: '24px', background: '#f8fafc', border: '2px dashed #cbd5e1', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
-                            <img src={hrmLogo} alt="Company Logo" style={{ width: '80%', height: '80%', objectFit: 'contain' }} />
+                            <span style={{ fontSize: '28px', fontWeight: '900', color: BRAND_COLOR, letterSpacing: '0.05em' }}>HRM</span>
                         </div>
                         <button style={{ position: 'absolute', bottom: '-10px', right: '-10px', background: BRAND_COLOR, color: 'white', border: 'none', padding: '8px', borderRadius: '10px', cursor: 'pointer', boxShadow: '0 4px 10px rgba(37, 99, 235, 0.3)' }}>
                             <Edit size={16} />

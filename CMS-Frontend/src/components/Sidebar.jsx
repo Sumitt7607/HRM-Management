@@ -20,8 +20,6 @@ import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import hrmLogo from '../assets/hrm_logo.png';
-
 const Sidebar = ({ activeTab, setActiveTab, onClose }) => {
     const { logout, user } = useAuth();
     const navigate = useNavigate();
@@ -79,17 +77,16 @@ const Sidebar = ({ activeTab, setActiveTab, onClose }) => {
         }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '40px', paddingLeft: '8px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-
-                    {/* 🔥 ONLY LOGO (TEXT REMOVED) */}
-                <img 
-    src={hrmLogo} 
-    alt="logo"
-    style={{ 
-        height: '90px',
-        width: '200px',
-        objectFit: 'contain'
-    }} 
-/>
+                    <div style={{
+                        background: 'var(--bg-subtle)',
+                        padding: '6px 16px',
+                        borderRadius: '12px',
+                        border: '1px solid var(--border)',
+                        boxShadow: 'var(--shadow-sm)',
+                        display: 'inline-block'
+                    }}>
+                        <span style={{ fontSize: '24px', fontWeight: '900', color: 'var(--primary)', letterSpacing: '0.05em' }}>HRM</span>
+                    </div>
                 </div>
                 
                 {onClose && (
