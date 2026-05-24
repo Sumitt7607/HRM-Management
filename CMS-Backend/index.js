@@ -22,11 +22,16 @@ const app = express();
 app.use(express.json());
 app.use(cors({
     origin: [
-        'https://hrm-management-3arl.vercel.app/',
+        'https://hrm-management-3arl.vercel.app',
         (process.env.FRONTEND_URL || '').trim(),
     ].filter(Boolean),
-    credentials: true
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
 }));
+
+// Handle preflight requests
+app.options('*', cors());
 
 // Routes
 const { changePassword } = require('./controllers/authController');
