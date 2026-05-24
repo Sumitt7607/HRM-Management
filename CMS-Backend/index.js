@@ -22,7 +22,7 @@ const app = express();
 app.use(express.json());
 app.use(cors({
     origin: [
-        'http://localhost:5173',
+        'https://hrm-management-3arl.vercel.app/',
         (process.env.FRONTEND_URL || '').trim(),
     ].filter(Boolean),
     credentials: true
